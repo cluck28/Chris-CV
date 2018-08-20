@@ -1,0 +1,43 @@
+{% extends "base_blog.html" %}
+{% block content %}
+
+
+    <div class="container-fluid p-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex d-column">
+        <div class="my-auto">
+          <h1 class="mb-0">
+            <span class="text-primary">Blog</span>
+          </h1>
+          <p class="lead mb-5">Writings...<a href="#0">Most recent</a>, <a href="#1">recent</a>, <a href="#2">older</a>. Or view all <a href="/allblogs">previous blog posts.</a></p>
+        </div>
+      </section>
+      
+      {% for title, text, index in data %}
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="{{index}}">
+        <div class="my-auto">
+            <h2 class="mb-0">{{title}}</h2>
+              <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                <div class="resume-content mr-auto">
+                  {{text}}...
+                  <br>
+                  <a href="/blog_item/{{index}}">Read More...</a>
+                </div>
+              </div>
+        </div>
+      </section>
+      {% else %}
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="{{index}}">
+        <div class="my-auto">
+            <h2 class="mb-0">N/A</h2>
+              <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                <div class="resume-content mr-auto">
+                  <p>No posts found...</p>
+                </div>
+              </div>
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+
+{% endblock %}
