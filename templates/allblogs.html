@@ -1,0 +1,33 @@
+{% extends "base_blog.html" %}
+{% block content %}
+
+
+    <div class="container-fluid p-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex d-column">
+        <div class="my-auto">
+          <h1 class="mb-0">
+            <span class="text-primary">Blog</span>
+          </h1>
+          <p class="lead mb-5">Writings...</p>
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              {% for title, text in data %}
+              <h2 class="mb-0">{{title}}</h2>
+              {{text}}...
+              <br>
+              <a href="#">Read More</a>
+              
+              {% else %}
+              <h2 class="mb-0">N/A</h2>
+              <p>No posts found...</p>
+              
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </div>
+
+{% endblock %}
